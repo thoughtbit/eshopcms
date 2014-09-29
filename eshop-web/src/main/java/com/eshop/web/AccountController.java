@@ -4,9 +4,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.eshop.web.entity.Account;
-import com.eshop.web.service.AccountService;
-import com.eshop.web.common.Pager;
+import com.eshop.model.Account;
+import com.eshop.service.AccountService;
+import com.eshop.commons.Pager;
 
 @Controller(value="accountController")
 @RequestMapping("/account")
@@ -38,7 +38,7 @@ public class AccountController{
 		
 		req.setAttribute("pager", pager);
 		
-		return "pager-list";
+		return "admin/users-list";
 	}
 	
 }

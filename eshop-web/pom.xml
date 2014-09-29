@@ -10,36 +10,42 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.eshopcms</groupId>
 	<artifactId>eshop-web</artifactId>
-	<version>0.0.1</version>
 	<name>eshop-web</name>
 	<packaging>war</packaging>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<dependencies>
+		<!-- model -->
+		<dependency>
+			<groupId>com.eshopcms</groupId>
+			<artifactId>eshop-service</artifactId>
+		</dependency>
+
 		<!-- servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>${jstl.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
+			<artifactId>spring-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -48,6 +54,18 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 		</dependency>
 
 		<!-- mybatis -->
@@ -69,10 +87,10 @@
 			<groupId>org.pager.taglib</groupId>
 			<artifactId>pager-taglib</artifactId>
 		</dependency>
+
 		<dependency>
-			<groupId>com.eshopcms</groupId>
-			<artifactId>eshop-service</artifactId>
-			<version>0.0.1</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
 

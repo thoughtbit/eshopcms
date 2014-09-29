@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
     <!-- mvn install package -->
 	<modules>
-		<module>eshop-web</module>
-		<module>eshop-api</module>
+		<module>eshop-commons</module>
 		<module>eshop-model</module>
 		<module>eshop-dao</module>
 		<module>eshop-service</module>
-		<module>eshop-commons</module>
+		<module>eshop-web</module>
+		<module>eshop-api</module>
 	</modules>
 
 	<groupId>com.eshopcms</groupId>
@@ -36,14 +36,11 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.2.11.RELEASE</spring.version>
-		
 		<jersey.version>2.10</jersey.version>
-		
 		<mybatis.version>3.2.6</mybatis.version>
 		<mybatis.spring.version>1.2.2</mybatis.spring.version>
 		<mysql.version>5.1.32</mysql.version>
 		<jstl.version>1.2</jstl.version>
-
 		<logback.version>1.1.2</logback.version>
 		<jcloverslf4j.version>1.7.6</jcloverslf4j.version>
 	</properties>
@@ -72,6 +69,31 @@
 			<!-- module -->
 			<dependency>
 				<groupId>${project.groupId}</groupId>
+				<artifactId>eshop-commons</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>eshop-model</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>eshop-dao</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>eshop-base</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>eshop-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>eshop-web</artifactId>
 				<version>${project.version}</version>
 			</dependency>
@@ -82,7 +104,6 @@
 			</dependency>
 			
 			<!-- Jersey-Spring  -->
-			
 			<dependency>
 				<groupId>org.glassfish.jersey.ext</groupId>
 				<artifactId>jersey-spring3</artifactId>
@@ -109,6 +130,11 @@
 			</dependency>
 								
 			<!-- Spring 3 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-core</artifactId>
@@ -140,6 +166,16 @@
 				<artifactId>spring-orm</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+		  	<dependency>
+		  		<groupId>org.springframework</groupId>
+		  		<artifactId>spring-test</artifactId>
+		  		<version>${spring.version}</version>
+		  	</dependency>
 
 			<!-- Mybatis -->
 			<dependency>

@@ -3,15 +3,11 @@ package com.eshop.commons;
 import java.util.List;
 
 public class Pager<T> {
-	//总记录数
 	private int total;
-	/*//每页显示的记录数
+	/*
 	private int pegeSize;
-	//要显示的号码数
 	private int showPages;
-	//当前分页的样式类
 	private String currentPageStyle;*/
-	//每页显示的具体内容
 	private List<T> pageList;
 	public int getTotal() {
 		return total;

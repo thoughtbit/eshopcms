@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+	    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	    xmlns:jaxws="http://cxf.apache.org/jaxws"
+	    xmlns:p="http://www.springframework.org/schema/p" 
+	    xmlns:context="http://www.springframework.org/schema/context"
+	    xmlns:tx="http://www.springframework.org/schema/tx"
+	    xmlns:mvc="http://www.springframework.org/schema/mvc"
+	    xmlns:cache="http://www.springframework.org/schema/cache"
+	    xsi:schemaLocation="
+			http://www.springframework.org/schema/beans	 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			 
+			http://www.springframework.org/schema/mvc	 
+			http://www.springframework.org/schema/mvc/spring-mvc.xsd
+			
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd
+			
+			http://cxf.apache.org/jaxws 
+			http://cxf.apache.org/schemas/jaxws.xsd
+			
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx.xsd
+			
+			http://www.springframework.org/schema/cache
+			http://www.springframework.org/schema/cache/spring-cache.xsd">
+  
+	<!-- Import Tiles-related configuration -->
+	<!-- <import resource="tiles-context.xml" /> -->
+	
+	<!--The controllers are autodetected POJOs labeled with the @Component @Controller@Service annotation. -->
+    <context:component-scan base-package="com.eshop"/>
+    
+	<!-- 配置  @Controller 到  Action -->
+	<mvc:annotation-driven/>
+	
+	<!-- 静态资源 -->
+	<!--<mvc:resources mapping="/assets/**" location="/assets/css"/>
+	<mvc:resources mapping="/assets/**" location="/assets/js"/>
+	<mvc:resources mapping="/assets/**" location="/assets/images"/>-->
+    
+	<!-- 对控制器返回的逻辑路径指定对应的视图 -->
+	<!-- prefix + view name + suffix = /WEB-INF/pages/login.jsp -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">	
+	   <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+	   <property name="prefix" value="/WEB-INF/**"></property>
+	   <property name="suffix" value=".jsp"></property>
+	</bean>
+	
+ 	<!-- DAOs configuration -->
+	<!-- <import resource="dao-context.xml"/> -->
+	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+	<!-- 配置DataSource数据源 -->
+	<context:property-placeholder location="classpath:db.properties"/>
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="${driver}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${username}"/>
+		<property name="password" value="${password}"/>
+	</bean>
+
+	<!-- ========================= MyBATIS configuration ========================= -->
+	<!-- 配置SqlSessionFactoryBean -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+		<!-- mapper配置路径 -->
+		<property name="mapperLocations" value="classpath:com/eshop/mapper/*-mapper.xml"/>
+	</bean>
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="idao" class="com.eshop.dao.IdaoImpl">
+		<property name="sqlSessionTemplate" ref="sqlSession"/>
+	</bean>
+	
+</beans>

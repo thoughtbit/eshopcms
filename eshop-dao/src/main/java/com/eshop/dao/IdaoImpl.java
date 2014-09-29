@@ -37,7 +37,7 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 	}
 
 	
-	 public Pager<T> findByPage(Class<T> entityClass,int showPages,int pageSize) {
+	public Pager<T> findByPage(Class<T> entityClass,int showPages,int pageSize) {
 		 Pager<T> pager = new Pager<T>();
 		 Map<String, Object> maps = new HashMap<String, Object>();
 		 maps.put("showPages", showPages);
@@ -47,6 +47,6 @@ public class IdaoImpl<T,PK extends Serializable> extends SqlSessionDaoSupport im
 		 pager.setPageList(pageList);
 		 pager.setTotal(total);
 		 return pager;
-	 }
+	}
 
 }

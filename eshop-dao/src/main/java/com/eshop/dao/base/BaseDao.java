@@ -2,7 +2,7 @@ package com.eshop.dao.base;
 
 import java.io.Serializable;
 import java.util.List;
-import com.easycms.common.Pager;
+import com.eshop.commons.Pager;
 
 public interface BaseDao<T,PK extends Serializable> {
 	/**
