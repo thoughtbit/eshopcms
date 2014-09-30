@@ -39,11 +39,17 @@
 	</bean>
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg index="0" ref="sqlSessionFactory" />
+	  <constructor-arg index="1" value="BATCH" />
+	</bean>
+
+<!-- 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory"/>
 	</bean>
 	
 	<bean id="idao" class="com.eshop.dao.IdaoImpl">
-		<property name="sqlSessionTemplate" ref="sqlSession"/>
-	</bean>
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+	</bean> -->
+
 	
 </beans>

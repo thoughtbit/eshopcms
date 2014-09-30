@@ -20,6 +20,11 @@
 			http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+	<tx:annotation-driven transaction-manager="transactionManager" />  
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean> 
+
 	<!-- 配置DataSource数据源 -->
 	<context:property-placeholder location="classpath:db.properties"/>
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
@@ -33,17 +38,16 @@
 	<!-- 配置SqlSessionFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="configLocation" value="classpath:mybatis-config.xml"/>
-		<!-- mapper配置路径 -->
-		<property name="mapperLocations" value="classpath:com/eshop/mapper/*-mapper.xml"/>
+  		<property name="typeAliasesPackage" value="com.eshop.model"/>
 	</bean>
 
+    <!-- scan for mappers and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.eshop.mappers"/>
+    </bean>
+    
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionFactory"/>
+	    <constructor-arg index="0" ref="sqlSessionFactory"/>
 	</bean>
-	
-	<bean id="idao" class="com.eshop.dao.IdaoImpl">
-		<property name="sqlSessionTemplate" ref="sqlSession"/>
-	</bean>
-	
+
 </beans>

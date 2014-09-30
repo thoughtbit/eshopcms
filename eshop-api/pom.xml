@@ -12,7 +12,7 @@
 	<artifactId>eshop-api</artifactId>
 	<name>eshop-api</name>
 	<packaging>war</packaging>
-
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>

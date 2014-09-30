@@ -29,7 +29,8 @@
 	<!-- Import Tiles-related configuration -->
 	<!-- <import resource="tiles-context.xml" /> -->
 	
-	<!--The controllers are autodetected POJOs labeled with the @Component @Controller@Service annotation. -->
+	<!--The controllers are autodetected POJOs labeled with the @Component @Controller@Service annotation. (管理所有使用注解的类)-->
+	
     <context:component-scan base-package="com.eshop"/>
     
 	<!-- 配置  @Controller 到  Action -->
@@ -49,32 +50,6 @@
 	</bean>
 	
  	<!-- DAOs configuration -->
-	<!-- <import resource="dao-context.xml"/> -->
-	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
-	<!-- 配置DataSource数据源 -->
-	<context:property-placeholder location="classpath:db.properties"/>
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName" value="${driver}"/>
-		<property name="url" value="${url}"/>
-		<property name="username" value="${username}"/>
-		<property name="password" value="${password}"/>
-	</bean>
-
-	<!-- ========================= MyBATIS configuration ========================= -->
-	<!-- 配置SqlSessionFactoryBean -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"/>
-		<property name="configLocation" value="classpath:mybatis-config.xml"/>
-		<!-- mapper配置路径 -->
-		<property name="mapperLocations" value="classpath:com/eshop/mapper/*-mapper.xml"/>
-	</bean>
-
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionFactory"/>
-	</bean>
-	
-	<bean id="idao" class="com.eshop.dao.IdaoImpl">
-		<property name="sqlSessionTemplate" ref="sqlSession"/>
-	</bean>
+	<import resource="dao-context.xml"/>
 	
 </beans>

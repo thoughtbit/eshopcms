@@ -2,6 +2,7 @@ package com.eshop.model;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Account implements Serializable{
 	private int id;
 	private String username;

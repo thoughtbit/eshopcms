@@ -25,20 +25,18 @@
 			
 			http://www.springframework.org/schema/cache
 			http://www.springframework.org/schema/cache/spring-cache.xsd">
-  
-	<!-- Import Tiles-related configuration -->
-	<!-- <import resource="tiles-context.xml" /> -->
-	
-	<!--The controllers are autodetected POJOs labeled with the @Component @Controller@Service annotation. -->
+
+	<!--The controllers are autodetected POJOs labeled with the @Component @Controller@Service annotation. (管理所有使用注解的类)-->
     <context:component-scan base-package="com.eshop"/>
     
 	<!-- 配置  @Controller 到  Action -->
 	<mvc:annotation-driven/>
 	
-	<!-- 静态资源 -->
-	<!--<mvc:resources mapping="/assets/**" location="/assets/css"/>
-	<mvc:resources mapping="/assets/**" location="/assets/js"/>
-	<mvc:resources mapping="/assets/**" location="/assets/images"/>-->
+    <!-- Application Message Bundle -->
+	<!-- <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:messages/*.properties" />
+		<property name="cacheSeconds" value="3000" />
+	</bean> -->
     
 	<!-- 对控制器返回的逻辑路径指定对应的视图 -->
 	<!-- prefix + view name + suffix = /WEB-INF/pages/login.jsp -->
@@ -51,4 +49,7 @@
  	<!-- DAOs configuration -->
 	<import resource="dao-context.xml"/>
 	
+	<!-- Import Tiles-related configuration -->
+	<!-- <import resource="tiles-context.xml" /> -->
+
 </beans>
