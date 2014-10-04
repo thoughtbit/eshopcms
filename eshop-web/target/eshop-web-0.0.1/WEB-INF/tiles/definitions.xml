@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">      
-<tiles-definitions>  
-	<definition name="page_description" extends="defaultTemplate">
-		<put-attribute name="title" value="SEO关键字" />
-    	<put-attribute name="page_description" value="SEO页面内容描述"/>       			  
-		<put-attribute name="content" value="/WEB-INF/front/login_tpl.jsp"/>		 	        	    
-	</definition>	     	 
-</tiles-definitions>

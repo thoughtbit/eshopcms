@@ -2,51 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.eshop.mappers.AccountMapper">
-  
   <resultMap type="Account" id="AccountResult">
     <id property="id" column="id"/>
     <result property="username" column="username" />
     <result property="password" column="password"/>
   </resultMap>
-  
-    <!-- 插入操作 -->
-    <insert id="insert" parameterType="AccountResult" useGeneratedKeys="true" keyProperty="id">
-       insert into Account(username,password) 
-       values(#{username},#{password})
-    </insert>
-    <insert id="insertWithMap" parameterType="hashmap" useGeneratedKeys="true" keyProperty="id">
-       insert into Account(username,password) 
-       values(#{username},#{password})
-    </insert>
-    <!-- 删除操作 -->
-    <delete id="delete" parameterType="int">
-      delete from Account where id=#{id}
-    </delete>
-    <!-- 修改操作 -->
-    <update id="update" parameterType="AccountResult">
-        update Account 
-        <set>
-            <if test="username != null">username=#{username},</if>
-            <if test="password != null">password=#{password},</if>
-        </set>
-        where id=#{id}
-    </update>
-    <!--  查询操作-->
-    <select id="findById" parameterType="int" resultType="AccountResult">
-      select * from Account where id=#{id}
-    </select>
-    <!-- 查询全部 -->
-    <select id="findAll" resultType="AccountResult">
-       select * from Account
-    </select>
-
-    <!-- 分页查询 -->
-    <select id="findByPage" resultType="AccountResult" parameterType="map">
-      select * from Account limit #{showPages},#{pageSize}
-    </select>
-    <!-- 总页数 -->
-    <select id="findTotal" resultType="int" parameterType="int">
-      select count(*) from Account
-    </select>
-
 </mapper>

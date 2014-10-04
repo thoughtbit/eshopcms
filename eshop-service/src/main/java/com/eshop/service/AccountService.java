@@ -1,26 +1,25 @@
 package com.eshop.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
+import com.eshop.commons.Pager;
 import com.eshop.model.Account;
-import com.eshop.mappers.AccountMapper;
+/**
+ * 
+ * @author fuxin
+ *
+ */
+public interface AccountService{
 
-@Service
-@Transactional
-public class AccountService{
-	@Autowired
-	private AccountMapper accountMapper;
-	void insert(Account account);
+	public void createAccount(Account account);
 	
-	void insertWithMap(Map<String, Object> map);
-
-	int delete(int id);
-
-	void update(Account account);
-
-	Account findById(Integer id);
-
-	List<Account> findAll();
+	public int deleteStudent(int id);
+	
+	public Account findAccountById(int id);
+	
+	public List<Account> findAccountAll();
+	
+	public int findTotal();
+	
+	public Pager<Account> findByPage(int showPages,int pageSize);
 }

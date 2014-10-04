@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://jsptags.com/tags/navigation/pager" prefix="pg"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -57,37 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		</table>
     	</div><!-- /.mod-bd -->
     	<div class="ft">
-    	<pg:pager items="${pager.total}" maxPageItems="10" maxIndexPages="5" url="account/pager" export="currentPageNo = pageNumber">
-    		<pg:index export="totalItems = itemCount">
-    		<div class="pager">
-			    <pg:page export="firstItem, lastItem">
-		        <span class="info">共${totalItems}条/${firstItem}-${lastItem}页</span>
-		        </pg:page>
-		       	<pg:first> 
-		       	<a class="start" href="${pageUrl}">首页</a>
-		       	</pg:first>
-		       	<pg:prev>
-		        <a class="prev" href="${pageUrl}">上一页</a>
-		        </pg:prev>
-		        <pg:pages>
-		        <c:choose>
-			        <c:when test="${currentPageNo eq pageNumber}">
-			        	<span class="page current">${pageNumber}</span>
-			        </c:when>
-			        <c:otherwise>
-			        <a class="page" href="${pageUrl}">${pageNumber}</a>
-			        </c:otherwise>
-		        </c:choose>
-		        </pg:pages>
-		        <pg:next>
-		        <a class="next" href="${pageUrl}">下一页</a>
-		        </pg:next>
-		        <pg:last>
-		        <a class="end" href="${pageUrl}">末页</a>
-		        </pg:last>
-	    	</div><!-- /.pager -->
-	    	</pg:index>
-	    </pg:pager>
+    	
     	</div><!-- /.mod-ft -->
     </div><!-- /.mod -->
     
