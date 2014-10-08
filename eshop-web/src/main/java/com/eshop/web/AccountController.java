@@ -31,7 +31,7 @@ public class AccountController{
 		accountService.createAccount(acc);
 		logger.info("{}", acc);
 		req.setAttribute("name", req.getParameter("username"));
-		return "login";	
+		return "front/login";	
 	}
 	
 	//分页查询

@@ -25,13 +25,14 @@
 			
 			http://www.springframework.org/schema/cache
 			http://www.springframework.org/schema/cache/spring-cache.xsd">
-
+					
 	<!--The controllers are autodetected POJOs labeled with the @Component @Controller@Service annotation. (管理所有使用注解的类)-->
     <context:component-scan base-package="com.eshop"/>
     
 	<!-- 配置  @Controller 到  Action -->
 	<mvc:annotation-driven/>
 	
+
     <!-- Application Message Bundle -->
 	<!-- <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="classpath:messages/*.properties" />
@@ -62,7 +63,6 @@
             </props>  
 		</property>  
     </bean> 
-	
 	
  	<!-- DAOs configuration -->
 	<import resource="dao-context.xml"/>

@@ -26,4 +26,9 @@ public class Account implements Serializable{
 		this.password = password;
 	}
 
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", username=" + username + ", password=" + password;
+	}
+	
 }

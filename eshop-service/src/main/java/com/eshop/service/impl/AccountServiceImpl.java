@@ -3,7 +3,7 @@ package com.eshop.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +12,6 @@ import com.eshop.mappers.AccountMapper;
 import com.eshop.model.Account;
 import com.eshop.service.AccountService;
 
-//@Component
 @Service
 @Transactional
 public class AccountServiceImpl implements AccountService{

@@ -9,6 +9,7 @@ import com.eshop.model.Account;
  * @author fuxin
  *
  */
+
 public interface AccountService{
 
 	public void createAccount(Account account);

@@ -21,7 +21,7 @@
 
 	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
 	<!-- 使用annotation定义事务 -->
-	<tx:annotation-driven transaction-manager="transactionManager" />  
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="false"/>  
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean> 
