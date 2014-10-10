@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,11 @@ import com.eshop.service.AccountService;
 @ContextConfiguration(locations="classpath*:applicationContext.xml")
 public class AccountServiceImplTest{
 
-	@Autowired
+	@Resource(name="accountServiceImpl")
 	private AccountService accountService;
 	
-	@Autowired
-	private AccountMapper accountMapper;
+/*	@Autowired
+	private AccountService accountService;*/
 	
 	@Test
 	public void testFindAllStudents() {

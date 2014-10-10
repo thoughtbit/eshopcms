@@ -3,8 +3,7 @@ package com.eshop.mappers;
 import java.util.List;
 
 import org.apache.ibatis.annotations.*;
-import org.springframework.transaction.annotation.Transactional;
-
+import org.springframework.stereotype.Repository;
 import com.eshop.commons.Pager;
 import com.eshop.model.Account;
 
@@ -14,7 +13,7 @@ import com.eshop.model.Account;
  *
  */
 
-@Transactional
+@Repository
 public interface AccountMapper{
 	@Delete("delete from Account where id=#{id}")
 	int deleteAccount(int id);
