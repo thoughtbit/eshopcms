@@ -7,5 +7,6 @@
 </head>
 <body>
 hello word!
+<a href="/index"></a>
 </body>
 </html>

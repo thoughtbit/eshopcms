@@ -43,7 +43,7 @@
 	<!-- prefix + view name + suffix = /WEB-INF/pages/login.jsp -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">	
 	   <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-	   <property name="prefix" value="/WEB-INF/**"></property>
+	   <property name="prefix" value="/WEB-INF/"></property>
 	   <property name="suffix" value=".jsp"></property>
 	</bean>
 	
@@ -51,8 +51,8 @@
 	<mvc:default-servlet-handler/>
 	
 	<!-- 定义无需Controller的url<->view直接映射 -->
-	<mvc:view-controller path="/front/" view-name="index"/>
-	<mvc:view-controller path="/admin/" view-name="/admin/index"/>
+<!-- 	<mvc:view-controller path="/front/" view-name="/index"/>
+	<mvc:view-controller path="/admin/" view-name="/admin/index"/> -->
 	
 	<!-- 将Controller抛出的异常转到特定View, 保持SiteMesh的装饰效果 -->
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  

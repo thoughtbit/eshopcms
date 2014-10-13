@@ -20,27 +20,28 @@ import com.eshop.service.AccountService;
 @ContextConfiguration(locations="classpath*:applicationContext.xml")
 public class AccountServiceImplTest{
 
-	@Resource(name="accountServiceImpl")
-	private AccountService accountService;
-	
-/*	@Autowired
+	/*@Resource(name="accountServiceImpl")
 	private AccountService accountService;*/
 	
-	@Test
+	@Autowired
+	private AccountService accountService;
+	
+	/*@Test
 	public void testFindAllStudents() {
 		List<Account> accounts = accountService.findAccountAll();
 		assertNotNull(accounts);
 		for (Account account : accounts){
 			System.err.println(account);
 		}
-	}
+	}*/
 
-/*	@Test
+	@Test
 	public void testFindStudentById() {
 		Account account = accountService.findAccountById(1);
-		System.err.println(account);
-		System.err.println(account.getUsername()+":"+account.getUsername());
-	}*/
+		/*System.err.println(account);
+		System.err.println(account.getUsername()+":"+account.getUsername());*/
+		assertEquals(1, account.getId());
+	}
 
 	
 	/*@Test
