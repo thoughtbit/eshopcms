@@ -25,7 +25,7 @@ public class AccountServiceImpl implements AccountService{
 	}
 
 	@Override
-	public int deleteStudent(int id) {
+	public int deleteAccount(int id) {
 		return accountMapper.deleteAccount(id);
 	}
 

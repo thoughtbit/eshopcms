@@ -14,7 +14,7 @@ public interface AccountService{
 
 	public void createAccount(Account account);
 	
-	public int deleteStudent(int id);
+	public int deleteAccount(int id);
 	
 	public Account findAccountById(int id);
 	

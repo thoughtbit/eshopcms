@@ -1,15 +1,12 @@
 ## 安装
 
 	# 下载代码
-	https://github.com/thoughtbit/eshopcms.git
+	https://coding.net/moocss/eshopcms.git
 	# 进入eshopcms目录
 	cd eshopcms
-	# 清理
-	mvn clean
-
-	# 打包
-	mvn install package
-
+	# 清理 打包
+	mvn clean install package
+	
 	# 编译
 	mvn compile
 	# 修改数据库配置文件

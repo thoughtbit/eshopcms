@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<organization>
 		<name>moocss</name>
@@ -12,17 +11,17 @@
 		<module>eshop-dao</module>
 		<module>eshop-service</module>
 		<module>eshop-web</module>
-	</modules>
+  </modules>
 
 	<groupId>com.eshopcms</groupId>
 	<artifactId>eshopcms</artifactId>
 	<version>0.0.1</version>
 	<packaging>pom</packaging>
 
-	<name>eshopcms</name>
+	<name>EshopCMS Maven Webapp</name>
 	<url>http://eshopcms.moocss.com</url>
 
-	<!-- 开发人员信息 -->
+	<!-- �?��人员信息 -->
 	<developers>
 		<developer>
 			<id>moocss</id>
@@ -32,7 +31,7 @@
 			<roles>
 				<role>software engineer</role>
 			</roles>
-			<timezone>8</timezone>
+			<timezone>12</timezone>
 		</developer>
 	</developers>
 
@@ -187,6 +186,14 @@
 			  <artifactId>junit</artifactId>
 			  <version>4.11</version>
 			</dependency>
+			
+			<!-- test jdbc -->
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>1.4</version>
+				<scope>test</scope>
+			</dependency>
 
 	        <!-- FreeMarker -->
 			<dependency>
@@ -208,6 +215,14 @@
 				<artifactId>commons-fileupload</artifactId>
 				<version>1.3</version>
 			</dependency>
+			
+			<!-- Mybatis Generator -->
+			<dependency>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-core</artifactId>
+				<version>1.3.2</version>
+			</dependency>
+
 			
 		</dependencies>
 	</dependencyManagement>
@@ -351,14 +366,12 @@
 						<configuration>
 							<target>
 								<tstamp prefix="eshopcms.">
-									<format property="time" pattern="yyyyMMddHHmmss" />
+									<format property="time" pattern="yyyyMMddHHmmss"/>
 								</tstamp>
 								<copy todir="${basedir}/dist" overwrite="true">
-									<fileset
-										dir="${basedir}/target/${project.artifactId}-${project.version}" />
+									<fileset dir="${basedir}/target/${project.artifactId}-${project.version}"/>
 								</copy>
-								<replace file="${basedir}/dist/WEB-INF/web.xml" token="eshopcms.root"
-									value="eshopcms.root.${eshopcms.time}" />
+								<replace file="${basedir}/dist/WEB-INF/web.xml" token="eshopcms.root" value="eshopcms.root.${eshopcms.time}"/>
 							</target>
 						</configuration>
 						<goals>
